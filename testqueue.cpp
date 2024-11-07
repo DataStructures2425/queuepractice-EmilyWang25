@@ -10,10 +10,17 @@ using namespace std::chrono;
 int main()
 {
     // An example of measuring the time it takes for an algorithm to execute
+    auto start0 = high_resolution_clock::now(); 
+    printBinaryNaive(7);
+    auto stop0 = high_resolution_clock::now();\
+
+    auto diff0 = duration_cast<nanoseconds>(stop0-start0); 
+    cout<<"time for native:"<<diff0.count()<<endl;
+    
     auto start = high_resolution_clock::now(); // time before cout
-    cout << "hello!" << endl;
+    printBinaryQueue(7);
     auto stop = high_resolution_clock::now(); // time after cout
 
     auto diff = duration_cast<nanoseconds>(stop-start); // get difference
-    cout << diff.count();
+    cout <<"time for queue:"<<diff.count()<<endl;
 }
